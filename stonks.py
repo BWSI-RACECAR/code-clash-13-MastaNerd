@@ -43,10 +43,12 @@ class Solution:
             #return type: int
             largStonk = 0
             for i in range(0, len(prices)):
-                for j in (i, len(prices)):
+                for j in range(i, len(prices)):
                     currStonk = prices[j] - prices[i]
                     if currStonk > largStonk:
                          largStonk = currStonk
+            if largStonk == 0 or largStonk < 0:
+                return 0
             return largStonk
 
 def main():
