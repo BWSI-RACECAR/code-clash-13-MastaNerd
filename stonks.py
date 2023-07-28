@@ -41,7 +41,7 @@ class Solution:
     def stonks(self, prices):
             #type prices: list of int
             #return type: int
-            largStonk
+            largStonk = 0
             for i in range(0, len(prices)):
                 for j in (i, len(prices)):
                     currStonk = prices[j] - prices[i]
