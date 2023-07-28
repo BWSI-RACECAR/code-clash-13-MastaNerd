@@ -54,9 +54,9 @@ class Solution:
                             newCurrStonk = prices[y] - prices[x]
                             if newCurrStonk > newLargStonk:
                                 newLargStonk = newCurrStonk
-                                curTotalStonk = largStonk + newLargStonk
-                                if largStonk + newLargStonk > largTotalStonk:
-                                    largTotalStonk = curTotalStonk
+                            curTotalStonk = largStonk + newLargStonk
+                            if largStonk + newLargStonk > largTotalStonk:
+                                largTotalStonk = curTotalStonk
             if largStonk < 0:
                 return 0
             return largStonk
