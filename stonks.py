@@ -42,6 +42,7 @@ class Solution:
             #type prices: list of int
             #return type: int
             largStonk = 0
+            newLargStonk = 0
             for i in range(0, len(prices)):
                 for j in range(i, len(prices)):
                     currStonk = prices[j] - prices[i]
@@ -49,8 +50,10 @@ class Solution:
                          largStonk = currStonk
                     for x in range(j, len(prices)):
                         for y in range(x, len(prices)):
-                            addedStonk = prices[y] - prices[x]
-                            largStonk += addedStonk
+                            newCurrStonk = prices[y] - prices[x]
+                            if newCurrStonk > newLargStonk:
+                                newLargStonk = newCurrStonk
+            largStonk += newCurrStonk          
             if largStonk == 0 or largStonk < 0:
                 return 0
             return largStonk
