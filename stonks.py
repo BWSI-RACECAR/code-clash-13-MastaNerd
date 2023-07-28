@@ -47,6 +47,10 @@ class Solution:
                     currStonk = prices[j] - prices[i]
                     if currStonk > largStonk:
                          largStonk = currStonk
+                    for x in range(j, len(prices)):
+                        for y in range(x, len(prices)):
+                            addedStonk = prices[y] - prices[x]
+                            largStonk += addedStonk
             if largStonk == 0 or largStonk < 0:
                 return 0
             return largStonk
