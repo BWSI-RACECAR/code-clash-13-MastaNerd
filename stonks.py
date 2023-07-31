@@ -41,25 +41,18 @@ class Solution:
     def stonks(self, prices):
             #type prices: list of int
             #return type: int
-            largStonk = 0
-            newLargStonk = 0
-            largTotalStonk = 0
-            for i in range(0, len(prices)):
-                for j in range(i, len(prices)):
-                    currStonk = prices[j] - prices[i]
-                    if currStonk > largStonk:
-                         largStonk = currStonk
-                    for x in range(j, len(prices)):
-                        for y in range(x, len(prices)):
-                            newCurrStonk = prices[y] - prices[x]
-                            if newCurrStonk > newLargStonk:
-                                newLargStonk = newCurrStonk
-                            curTotalStonk = largStonk + newLargStonk
-                            if largStonk + newLargStonk > largTotalStonk:
-                                largTotalStonk = curTotalStonk
-            if largStonk < 0:
-                return 0
-            return largStonk
+        if not prices or len(prices) < 2:
+            return 0
+        first_buy = float('inf')
+        second_buy = float('inf')
+        first_profit = 0
+        second_profit = 0
+        for price in prices:
+            first_buy = min(first_buy, price)
+            first_profit = max(first_profit, price - first_buy)
+            second_buy = min(second_buy, price - first_profit)
+            second_profit = max(second_profit, price - second_buy)
+        return second_profit
 
 def main():
     array = input().split(" ")
